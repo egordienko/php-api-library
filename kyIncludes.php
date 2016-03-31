@@ -37,6 +37,7 @@ require_once("kyNewsSubscriber.php");
 require_once("kyStaff.php");
 require_once("kyStaffGroup.php");
 require_once("kyTicket.php");
+require_once("kyTicketExtended.php");
 require_once("kyTicketAttachment.php");
 require_once("kyTicketCustomFieldGroup.php");
 require_once("kyTicketNote.php");
