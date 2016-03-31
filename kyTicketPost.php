@@ -726,7 +726,7 @@ class kyTicketPost extends kyObjectBase {
 		if ($this->attachments === null || $reload) {
 			$this->attachments = array();
 
-			if ($this->has_attachments) {
+			//if ($this->has_attachments) {
 				/*
 				 * Need to get all attachments, and then filter by post identifier.
 				 */
@@ -737,7 +737,7 @@ class kyTicketPost extends kyObjectBase {
 						$this->attachments[] = $attachment;
 					}
 				}
-			}
+			//}
 		}
 		/** @noinspection PhpParamsInspection */
 		return new kyResultSet($this->attachments);
