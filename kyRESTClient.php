@@ -185,6 +185,13 @@ class kyRESTClient implements kyRESTClientInterface {
 			throw new kyException(sprintf("HTTP error: %s", $http_status));
 
 		curl_close($curl_handle);
+		
+		#@file_put_contents('/home/egordienko/test.out', __FILE__.':'.__LINE__ . ' ' . date('c') . ' ' . print_r($response, 1)."\n", FILE_APPEND | FILE_TEXT);
+        // CDATA corrupts if contains invalid XML symbols
+        if (is_string($response)) {
+            $response = preg_replace ('/[^\x{0009}\x{000a}\x{000d}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}]+/u', ' ', $response);
+        }   
+        // -----------------------------------------
 
 		if ($method === self::METHOD_DELETE)
 			return null;
